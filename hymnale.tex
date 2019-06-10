@@ -1,12 +1,60 @@
+\documentclass[ebook,12pt,twoside,openright,extrafontsizes,final]{memoir}
+\usepackage{fontspec}
+\usepackage{lettrine}
+\usepackage[autocompile]{gregoriotex}
+
+%\definecolor{gregoriocolor}{RGB}{99,00,00}
+\gresetlinecolor{gregoriocolor}
+\gresetgregoriofont[op]{greciliae}
+\grechangestyle{firstword}{\scshape}
+\gresetlyriccentering{syllable}
+\gresetheadercapture{name}{grecommentary}{string}
+
+\setmainfont{EBGaramond}
+
+\newcommand \red{\addfontfeature{Color=990000}}
+\newcommand \R{{\red℟.\ }}
+\newcommand \V{{\red℣.\ }}
+
+\newcommand*{\MyPath}{chants}
+
+\medievalpage
+\checkandfixthelayout
+
+\begin{document}
+\frontmatter
+\title{Hymnale}
+\author{Michael Shirk}
+\date{MMXIX}
+\maketitle
+
+
+
+\mainmatter
+%\chapter*{The Ordinary of the Mass}
+%\section*{While Vesting}
+
+\section{The Invitatory Psalm}
+\subsection{Tone III}
+\gregorioscore{\MyPath/invitatories/veniteExultemusDomino3}
+
+
+
+\subsection{Tone IV}
+\emph{The blank notes must be omitted when the Psalm is sung without an Invitatory Anthem.}
+\gregorioscore{\MyPath/invitatories/veniteExultemusDomino4}
+
+
+
 Part 1: Service Music
 
 Morning and Evening Prayer
 
 Versicles
 
-Invitatory tone 1
-Invitatory tone 2
-Invitatory tone 3
+% Invitatory tone iii
+% Invitatory tone iv
+Invitatory tone vi
 Invitatory tone 4
 Invitatory Anthems + pointed
 
@@ -58,3 +106,4 @@ proper of saints
 Appendix
 Other canticles poited,
 propers for sundays pointed.
+\end{document}
