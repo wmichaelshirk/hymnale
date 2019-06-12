@@ -14,6 +14,8 @@ lualatex hymanle.tex
 
 
 ## Roadmap
+* The Canticles at Mattins & Evensong, 1902
+* Fix styles at that point, make it printable.
 
 
 
