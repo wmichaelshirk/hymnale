@@ -1,13 +1,13 @@
 # Hymnale
 
-Hymnale is a plainsong hymnal, based primarily in the Sarum Use but some Roman additions. It is meant to be a suitable companion to the Book of Common Prayer, or to a English diurnal or breviary.
+Hymnale is a plainsong hymnal, based primarily in the Sarum Use but some Roman additions. It is meant to be a suitable companion to the Book of Common Prayer, or to an English diurnal or breviary.
 
 ## Installation
 
 First make sure [TeX Live](https://www.tug.org/texlive/) is installed. Then, to compile the pdf:
 
 ```bash
-lualatex hymanle.tex
+lualatex hymnale.tex
 ```
 _N.B., the above command needs to be run twice to space ties in certain chants._
 
@@ -17,6 +17,7 @@ _N.B., the above command needs to be run twice to space ties in certain chants._
 ## Roadmap
 * The Canticles at Mattins & Evensong, 1902
 * Hymns for Trinity, Corpus Christi, and the Summer
+* Consistancy of Numbering, accents on verses.
 * Fix styles at that point, make it printable.
 
 Part 1: Service Music
