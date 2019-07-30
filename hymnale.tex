@@ -2,6 +2,9 @@
 \usepackage{fontspec}
 \usepackage{lettrine}
 \usepackage[autocompile]{gregoriotex}
+\usepackage{multicol}
+
+\directlua{dofile("lua-functions.lua")}
 
 %\definecolor{gregoriocolor}{RGB}{99,00,00}
 \gresetlinecolor{gregoriocolor}
@@ -17,7 +20,15 @@
 \newcommand \V{{\red℣.\ }}
 \newcommand \etc{\emph{\red\&c.}}
 
+% Path to chant directory, in case they should be moved out.
 \newcommand*{\MyPath}{chants}
+
+% Command to style hymn verses
+\def\hymn#1{\gregorioscore{\MyPath/hymns/#1}\obeylines\hymna}
+
+\newcommand{\hymna}[1]{
+    \directlua{printhymn([[#1]])}
+}
 
 \medievalpage
 \checkandfixthelayout
@@ -72,27 +83,27 @@
 \section{Trinity Sunday}
 and daily until Corpus Christi
 At Evensong \& Mattins.
-\gregorioscore{\MyPath/hymns/adestoSanctaTrinitas}
-
-2. Thee all the armies of the sky
+\hymn{adestoSanctaTrinitas}{
+2 Thee all the armies of the sky
 Adore, and laud, and magnify:
 While Nature, in her triple frame,
 For ever sanctifies thy Name.
 
-3. And we, too, thanks and homage pay,
+3 And we, too, thanks and homage pay,
 Thine own adoring flock to-day:
 O join to that celestial song
 The praises of our suppliant throng!
 
-4. Light, sole and one, we thee confess,
+4 Light, sole and one, we thee confess,
 With triple praise we rightly bless:
 And Alpha and Omega own,
 With every spirit round thy throne.
 
-5. To thee, O Unbegotten One,
+5 To thee, O Unbegotten One,
 And thee, O Sole-begotten Son,
 And thee, O Holy Ghost, we raise
 Our equal and eternal praise.  Amen.
+}
 
 At Evensong.
 \V Let us bless the Father, the Son, and the Holy Ghost.  \R Let us praise him, and magnify him for ever.
@@ -101,22 +112,22 @@ At Mattins.
 \V Blessed art thou, O Lord, in the firmament of heaven.  \R And worthy to be praised and glorified for ever.
 
 At Lauds
-\gregorioscore{\MyPath/hymns/oPaterSancte}
-2. Trinity holy! Unity unchanging!
+\hymn{oPaterSancte}{
+2 Trinity holy! Unity unchanging!
 Godhead essential! Goodness all unbounded!
 Light of the Angels! Refuge of the friendless!
 Hope universal!
 
-3. Duly its service giveth every creature;
+3 Duly its service giveth every creature;
 All thy creation, Lord, in thee rejoiceth:
 We too will hymn thee with our heart’s devotion;
 Graciously hear us.
 
-4. Mightiest Godhead, unto thee be glory,
+4 Mightiest Godhead, unto thee be glory,
 Trinal yet Onely, Infinite and Highest:
 Glory and honour, song and praise beseem thee
 Now and for ever. Amen.
-
+}
 \V Blessed be the name of the Lord.  \R From this time forth for evermore.
 
 \gregorioscore{\MyPath/processions/voceJubilantes}
@@ -125,9 +136,8 @@ Now and for ever. Amen.
 and daily during the Octave
 
 ¶ At both Evensongs.
-\gregorioscore{\MyPath/hymns/sacrisSolemniis}
-
-2. Remember we that night,
+\hymn{sacrisSolemniis}{
+2 Remember we that night,
 When, the last Supper spread,
 Christ, as we all believe,
 The lamb, with leavenless bread,
@@ -135,7 +145,7 @@ Amongst his brethren shared,
 And thus the Law obey’d,
 Of old unto their sires declared.
 
-3. The typick lamb consumed,
+3 The typick lamb consumed,
 The Paschal feast complete,
 The Lord unto the Twelve
 His Body gave to eat;
@@ -143,7 +153,7 @@ The whole to all, no less
 The whole to each, did mete
 With his own hands, as we confess.
 
-4. He gave them, weak and frail,
+4 He gave them, weak and frail,
 His Flesh, their food to be;
 On them, downcast and sad,
 His Blood bestowèd he:
@@ -151,7 +161,7 @@ And thus to them he spake,
 ‘Receive this Cup from me,
 And all of you of this partake’.
 
-5. When he this Sacrifice
+5 When he this Sacrifice
 To institute did will,
 He to his Priests alone
 That office to fulfil,
@@ -159,7 +169,7 @@ On this wise did confide—
 To whom pertaineth still,
 To take, and to the rest divide.
 
-6. Lo! Angels’ Bread is made
+6 Lo! Angels’ Bread is made
 The Bread of men to-day:
 The living Bread from heav’n
 With figures doth away:
@@ -167,84 +177,82 @@ O wondrous boon indeed!
 Though poor and lowly, may
 The servant on his Master feed.
 
-7. Thee therefore we implore,
+7 Thee therefore we implore,
 O Godhead, One in Three,
 So may’st thou visit us
 As we now worship thee;
 And lead us on thy way,
 That we at last may see
 The Light wherein thou dwellest aye. Amen.
-
+}
 \V Thou didst give them bread from heaven.  \R Containing in itself all sweetness.
 
 ¶ At Mattins.
-\gregorioscore{\MyPath/hymns/pangeLinguaGloriosi}
-
-2. Given for us, for us descending
+\hymn{pangeLinguaGloriosi}{
+2 Given for us, for us descending
 Of a Virgin to proceed,
 Man with man in converse blending,
 Scatter’d he the Gospel seed;
 Till his sojourn drew to ending.
 Which he closed in wondrous deed.
 
-3. At the last great Supper seated,
+3 At the last great Supper seated,
 Circled by his brethren’s band,
 All the Law required, completed
 In the feast its statutes planned,
 To the Twelve himself he meted,
 For their food, with his own hand.
 
-4. Word made Flesh, by Word he maketh
+4 Word made Flesh, by Word he maketh
 Very bread his Flesh to be;
 Man in wine Christ’s Blood partaketh,
 And if senses fail to see,
 Faith alone the true heart waketh
 To behold the mystery.
 
-5. Therefore we, before It bending,
+5 Therefore we, before It bending,
 This great Sacrament adore:
 Types and shadows have their ending
 In the new Rite evermore:
 Faith, our outward sense amending,
 Maketh good defects before.
 
-6. Honour, laud, and praise addressing
+6 Honour, laud, and praise addressing
 To the Father and the Son,
 Might ascribe we, virtue, blessing,
 And eternal benison;
 Holy Ghost, from Both progressing,
 Equal laud to thee be done. Amen.
-
+}
 \V Thou didst give them bread from heaven.  \R Containing in itself all sweetness.
 
 ¶ At Lauds.
-\gregorioscore{\MyPath/hymns/verbumSupernumProdiens}
-
-2. By false disciple to be given
+\hymn{verbumSupernumProdiens}{
+2 By false disciple to be given
 To foemen for his Blood athirst,
 Himself, the living Bread from heav’n,
 He gave to his disciples first.
 
-3. To them he gave, in two-fold kind,
+3 To them he gave, in two-fold kind,
 His very Flesh, his very Blood:
 Of two-fold substance man is made.
 And he of man would be the Food.
 
-4. At birth our Brother he became,
+4 At birth our Brother he became,
 Our Food, while seated at the board:
 He died our Ransomer to be,
 He reigns to be our great Reward.
 
-5. O Saving Victim, opening wide
+5 O Saving Victim, opening wide
 The gate of heav’n to man below:
 Our foes press on from every side,
 Thine aid supply, thy strength bestow.
 
-6. To thy great Name be endless praise,
+6 To thy great Name be endless praise,
 Immortal Godhead, One in Three!
 O grant us endless length of days
 In our true native land, with thee. Amen.
-
+}
 \V He maketh peace in thy borders.  \R And filleth thee with the flour of wheat.
 
 
@@ -293,7 +301,7 @@ till the First Sunday in Advent
 (Or, From Trinity Sunday to Advent/Trinity to Advent)
 \subsection{Saturday}
 Evensong
-\gregorioscore{\MyPath/hymns/oLuxBeataTrinitas}
+\hymn{oLuxBeataTrinitas}{
 2 To thee our morning song of praise,
 To thee our evening prayer we raise;
 Thy glory suppliant we adore
@@ -303,14 +311,14 @@ For ever and for evermore.
 All praise, eternal Son, to thee,
 All glory, as is ever meet,
 To God the holy Paraclete. Amen.
-
+}
 \V Let our evening prayer come up before thee, O Lórd.  \R And let thy mercy descend upon ús.
 
 \subsection{Sunday}
 And through the week.
 
 Mattins
-\gregorioscore{\MyPath/hymns/nocteSurgentes}
+\hymn{nocteSurgentes}{
 2 So may our Monarch pitifully hear us,
 That we may merit with his Saints to enter
 Mansions eternal, therewithal possessing
@@ -320,11 +328,11 @@ Joy beatific.
 Father eternal, Son, and Holy Spirit,
 Whose is the glory, which through all creation
 Ever resoundeth. Amen.
-
+}
 \V The Lord is high above all péople.  \R And his glory above the héavens.
 
 Lauds
-\gregorioscore{\MyPath/hymns/ecceJamNoctis}
+\hymn{ecceJamNoctis}{
 2 So shall our Maker, of his great compassion,
 Banish all sickness, kindly health bestowing;
 And may he grant us, of a Father’s goodness,
@@ -334,7 +342,7 @@ Mansions in heaven.
 Father eternal, Son, and holy Spirit,
 Whose is the glory, which through all creation
 Ever resoundeth. Amen.
-
+}
 \V The Lord is Kíng.  \R He hath put on glorious apparel, allelúya.
 
 
@@ -349,7 +357,7 @@ Evensong and Mattins
 ¶ For Many Virgins, the hymn and \V is {Ihesu, corona virginum}, as at Lauds.
 ¶ For a Matron, begin at verse 4.
 
-\gregorioscore{\MyPath/hymns/virginisProles}
+\hymn{virginisProles}{
 *2 She, thine own maiden, double blessing winneth,
 Striving to vanquish all her nature’s weakness.
 E’en by that weakness o’er a world of bloodshed
@@ -369,7 +377,7 @@ Unto thine honour.
 And the blest Spirit, with the twain co-equal,
 One only Godhead, who throughout the ages
 Reigneth for ever. Amen.
-
+}
 
 {Evensong.} \V Full of grace are thy líps. \R Therefore God hath blessed thee for éver. (Allelúya).
 
@@ -377,11 +385,10 @@ Reigneth for ever. Amen.
 
 
 L2E Jesu corona Virginum
-\gregorioscore{\MyPath/hymns/jesuCoronaVirginum}
 ¶ For Many Virgins, the hymn and \V is {Rex gloriose martyrum}, as at Lauds for Many Martyrs.
 ¶ This tune is for 2nd Evensong; At Mattins it is sung to {Veni, redemptor Gentium}.  During Christmas tide, at both hours, to Christe Redemptor Omnium, and during eastertide to Aurora Lucit - apostles
 
-
+\hymn{jesuCoronaVirginum}{
 2 Among the lilies thou dost feed,
 By Virgin quires accompanied—
 With glory deck’d, the spotless brides
@@ -402,6 +409,7 @@ Ordinary Doxology:
 All praise, eternal Son, to thee:
 All glory, as is ever meet,
 To God the holy Paraclete. Amen.
+}
 
 \V The virgins that be her fellows shall bear her company.  \R And shall be brought unto thee.  (Alleluya).
 
@@ -434,6 +442,5 @@ Thus the prize of purity
 Hath to you been meted;
 With the Virgin’s stainless Son
 Ye for aye are seated.
-
 
 \end{document}

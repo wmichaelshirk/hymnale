@@ -241,3 +241,5 @@ TSWLatexianTemp*
 
 # generated if using elsarticle.cls
 *.spl
+
+luadebug.lua
