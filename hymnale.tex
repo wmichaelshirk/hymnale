@@ -6,12 +6,20 @@
 
 \directlua{dofile("lua-functions.lua")}
 
+%
+% Gregorio Settings
+%
 %\definecolor{gregoriocolor}{RGB}{99,00,00}
 \gresetlinecolor{gregoriocolor}
 \gresetgregoriofont[op]{greciliae}
 \grechangestyle{firstword}{\scshape}
 \gresetlyriccentering{syllable}
+\gresetannotationby{bottomline}
+\gresetannotationvalign{top}
+\gresetheadercapture{office-part}{grecommentary}{string}
+\gresetheadercapture{occasion}{grecommentary}{string}
 \gresetheadercapture{name}{grecommentary}{string}
+
 
 \setmainfont{EBGaramond}
 
@@ -19,13 +27,17 @@
 \newcommand \R{{\red℟.\ }}
 \newcommand \V{{\red℣.\ }}
 \newcommand \etc{\emph{\red\&c.}}
+\newcommand \minorheading[2]{{\unexpanded\expandafter{\scshape #1}} {\unexpanded\expandafter{\itshape #2}}}
 
 % Path to chant directory, in case they should be moved out.
 \newcommand*{\MyPath}{chants}
 
-% Command to style hymn verses
+% Command to style hymns
+% *Number*
+% [[Office Hymn.]] Mattins           {C. 10th cent.  Tr. P. D}
+%                Annue Christe, saeculorum Domine
 \def\hymn#1{\gregorioscore{\MyPath/hymns/#1}\obeylines\hymna}
-
+\def\hymnverses{\obeylines\hymna}
 \newcommand{\hymna}[1]{
     \directlua{printhymn([[#1]])}
 }
@@ -349,6 +361,147 @@ Ever resoundeth. Amen.
 Hymn 13 (E)
 
 \chapter{Common of Saints}
+\section{Of one or more Apostles or an Evangelist out of Eastertide}
+¶ At First Evensong.\hfill Annue Christe
+\hymn{annueChriste}{
+¶ Here let the special verse proper to the Feast be sung.
+3 Save, O Redeemer, this thy noble handiwork,
+Seal’d with the holy radiance of thy countenance:
+Let no foul spirit rend by fraud or subtilty
+Them for whose ransom thou hast paid death’s penalty.
+
+4 Pity thy servants, pining in captivity,
+Absolve the guilty, raise the fetter’d prisoners:
+And thy redeemed ones, whom thy blood hath purchased,
+Grant, King of goodness, joy with thee in Paradise.
+
+5 To thee, O Jesu, Blessed Lord, for evermore
+Be glory, virtue, honour and supremacy:
+One with the Father, and the Holy Paraclete,
+With whom thou reignest God from all eternity.  Amen.
+}
+
+\V Their sound is gone out into all lands.  \R And their words into the ends of the world.
+
+
+[h4] Special Verses
+
+\hymnverses{
+\minorheading{S.\ Andrew.}{Andrea pie}
+May Andrew, gentlest of the saintly company,
+Implore forgiveness for our grievous trespasses;
+That we, sore burden’d by offences manifold,
+At his petition may obtain deliverance.
+
+\minorheading{S.\ Thomas.}{O Thoma Christi}
+May he, who, doubting, probed the Saviour’s pierced side,
+Plead—thro’ the merits of those wounds adorable,
+Whose streams atoning cleans’d the world’s iniquity,—
+That all the foulness of our guilt be purified.
+
+\minorheading{S.\ John.}{Bina celestis}
+Twin lamps, adorning Heaven’s eternal palaces!
+James, with thy brother John, divine Evangelist!
+Entreat that pardon for his lowly suppliants,
+Which Christ hath freely promised to the penitent.
+
+\minorheading{Conversion of S.\ Paul.}{Doctor egregie}
+O by thy doctrine, Paul, thou sage illustrious,
+Guide us in virtue, raise our spirits heavenwards;
+Till perfect knowledge stream on us abundantly,
+And that which only is in part be done away.
+
+\minorheading{S.\ Matthias.}{Matthia juste}
+May just Matthias, who by lot was numbered
+With thine Apostles, sharer of their dignity,
+By his petitions loose the bands of wickedness,
+That we inherit light and joy eternally.
+
+\minorheading{S.\ James.}{Bina celestis}
+(as above on the Feast of S. John.)
+
+\minorheading{S.\ Peter’s chains.}{Jam bone pastor}
+Peter, good shepherd, may thy ceaseless orisons,
+For us prevailing, break the bands of wickedness:
+For thou of old time didst receive authority
+The gates to open, or to close, of Paradise.
+
+\minorheading{S.\ Bartholomew.}{Bartolomee celi}
+May thy petitions, golden star, Bartholomew,
+Whose light the sunbeams far exceeds in brilliancy,
+Raise souls beclouded to celestial purity,
+And heal the sickness of our guilty consciences.
+
+\minorheading{S.\ Matthew.}{Matthee sancte}
+May saintly Matthew, high in twofold dignity,
+To thee, O Jesu, plead with prayer importunate:
+So ’mid life’s tempests may thy guidance succour us,
+Lest death hereafter whelm us everlastingly.
+
+\minorheading{SS.\ Simon \& Jude.}{Beate Symon}
+May blessed Simon, with Thaddeus glorious,
+Regard our weeping, and our sighs of penitence:
+And, though our trespass merit endless misery,
+Win us an entrance to celestial happiness.
+}
+
+\hymn{aeternaChristiMunera}{
+2 The Church in these her princes boasts,
+These victor chiefs of warrior hosts:
+The soldiers of the heavenly hall,
+The lights that rose on earth for all.
+
+3 ’Twas thus the yearning faith of Saints,
+Th’ unconquer’d hope that never faints,
+The love of Christ that knows not shame,
+The Prince of this world overcame.
+
+4 In these the Father’s glory shone;
+In these the will of God the Son;
+In these exults the Holy Ghost;
+Through these rejoice the Heavenly host.
+
+5 Redeemer, hear us of thy Love,
+That, with the glorious band above,
+Hereafter, of thine endless grace,
+Thy servants also may have place.  Amen.
+}
+
+\V Thou hast given an heritage.  \R Unto those that fear thy Name, O Lord.
+
+
+¶ At Lauds \& Second Evensong.\hfill Exultet celum laudibus
+\hymn{exultetCelumLaudibus}{
+2 O ye who, throned in glory dread,
+Shall judge the living and the dead-
+True lights, the world illumining,
+Regard the suppliant prayer we bring.
+
+3 The gates of heav’n, at your command,
+To all or closed or open stand:
+May we, at your august decree,
+Be loosed from our iniquity.
+
+4 The power, of old to you convey’d,
+Sickness and health alike obeyed:
+May ye our ailing souls once more
+To strength and holiness restore.
+
+5 That Christ, th’ avenging Judge of doom,
+When he at time’s last end shall come,
+May grant us, for his mercy’s sake,
+Of joys eternal to partake.
+
+<{Ordinary Doxology:}>
+6 All laud to God the Father be,
+All praise, eternal Son, to thee,
+All glory, as is ever meet,
+To God the holy Paraclete. Amen.
+}
+
+\V They declared the works of God.  \R And wisely considered of his doings.
+
+
 \section{Of a Virgin}
 
 Evensong and Mattins
@@ -442,5 +595,27 @@ Thus the prize of purity
 Hath to you been meted;
 With the Virgin’s stainless Son
 Ye for aye are seated.
+
+
+\chapter{Proper of Saints}
+August 1
+S. Peter's Chains
+As for the Common of apostles
+
+August 6
+Transfiguration of our Lord
+Celestis formam glorie 
+O Sator rerum
+O nata Lux de Lumine
+
+August 7
+The most sweet Name of Jesus
+Exultet cor precordiis
+Jesu, dulcis memoria
+Jesu, Auctor clemencie
+
+
+
+
 
 \end{document}

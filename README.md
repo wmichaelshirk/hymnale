@@ -16,22 +16,22 @@ _N.B., the above command needs to be run twice to space ties in certain chants._
 
 ## Roadmap
 * The Canticles at Mattins & Evensong, 1902
-* Hymns for Trinity, Corpus Christi, and the Summer
-* Consistancy of Numbering, accents on verses.
-* Fix styles at that point, make it printable.
+* * Pascha Nostrum
+* Consistancy of Numbering, accents on verses (Neum on hymns, verse on processions)
+* Add author, cent, etc.
 
 Part 1: Service Music
 
 Morning and Evening Prayer
 Versicles
 
-% Invitatory tone iii
-% Invitatory tone iv
-% Invitatory tone vi
-% Invitatory tone 4
+~ Invitatory tone iii~
+~ Invitatory tone iv ~
+~ Invitatory tone vi ~
+~ Invitatory tone ~
 Invitatory Anthems + pointed
 
-% Te Deum
+~ Te Deum ~
 Benedicite
 Benedicite
 Benedictus (at least two)
@@ -66,8 +66,8 @@ Passion
 Easter
 Ascension
 Whitsun
-Trinity
-Trinitytide
+~Trinity~
+~Trinitytide~
 
 common of saints
 proper of saints
