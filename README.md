@@ -19,31 +19,21 @@ _N.B., the above command needs to be run twice to space ties in certain chants._
 * * Pascha Nostrum
 * Consistancy of Numbering, accents on verses (Neum on hymns, verse on processions)
 * Add author, cent, etc.
+Style page/headings
+
 
 Part 1: Service Music
 
 Morning and Evening Prayer
 Versicles
 
-~ Invitatory tone iii~
-~ Invitatory tone iv ~
-~ Invitatory tone vi ~
-~ Invitatory tone ~
 Invitatory Anthems + pointed
 
-~ Te Deum ~
 Benedicite
 Benedicite
-Benedictus (at least two)
-Magnificat (At least two)
-Nunc Dimitis
-
 Preces
-
 Marian Antiphons
- 
 Quicumque vult
-
 Litany
 
 Mass parts
@@ -52,25 +42,6 @@ collect
 preface dialogue
 lord's Prayer
 
-mass parts
-
-
-Part 2: Hymns
-Seasons
-Advent
-Christmas
-Epiphany
-Epiphanytide
-Lent
-Passion
-Easter
-Ascension
-Whitsun
-~Trinity~
-~Trinitytide~
-
-common of saints
-proper of saints
 
 Appendix
 Other canticles poited,
