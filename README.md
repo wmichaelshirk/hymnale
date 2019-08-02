@@ -44,8 +44,14 @@ lord's Prayer
 
 
 Appendix
-Other canticles poited,
+Other canticles pointed,
 propers for sundays pointed.
+
+Funeral chants,
+Eucharistic chants?
+
+Easter chants?
+
 
 
 ## Contributing
