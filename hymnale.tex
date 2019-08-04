@@ -3,6 +3,7 @@
 \usepackage{lettrine}
 \usepackage[autocompile]{gregoriotex}
 \usepackage{multicol}
+\setsecnumdepth{part} % Only number the parts.
 
 \directlua{dofile("lua-functions.lua")}
 
@@ -12,14 +13,38 @@
 %\definecolor{gregoriocolor}{RGB}{99,00,00}
 \gresetlinecolor{gregoriocolor}
 \gresetgregoriofont[op]{greciliae}
-\grechangestyle{firstword}{\scshape}
+\grechangestyle{firstsyllableinitial}{\scshape}
 \gresetlyriccentering{syllable}
 \gresetannotationby{bottomline}
 \gresetannotationvalign{top}
-\gresetheadercapture{office-part}{grecommentary}{string}
-\gresetheadercapture{occasion}{grecommentary}{string}
-\gresetheadercapture{name}{grecommentary}{string}
 
+%
+% Setup gregorio chant headers
+%
+\newcommand{\chantoccasion}{}
+\newcommand{\chantauthor}{}
+\newcommand{\chantdate}{}
+\newcommand{\chanttranslator}{}
+\newcommand{\chantincipit}{}
+\newcommand{\captureoccasion}[1]{\renewcommand{\chantoccasion}{\expandafter#1}}
+\newcommand{\captureauthor}[1]{\renewcommand{\chantauthor}{\expandafter#1}}
+\newcommand{\capturdate}[1]{\renewcommand{\chantdate}{\expandafter#1}}
+\newcommand{\capturetranslator}[1]{\renewcommand{\chanttranslator}{\expandafter#1}}
+\newcommand{\capturename}[1]{\renewcommand{\chantincipit}{\expandafter#1}}
+
+\gresetheadercapture{office}{captureoccasion}{string}
+\gresetheadercapture{author}{captureauthor}{string}
+\gresetheadercapture{date}{capturdate}{string}
+\gresetheadercapture{translator}{capturetranslator}{string}
+\gresetheadercapture{name}{capturename}{string}
+\greafterheaders{
+    \directlua{printheaders("\luatexluaescapestring{\chantoccasion}", "\luatexluaescapestring{\chantauthor}", "\luatexluaescapestring{\chantdate}", "\luatexluaescapestring{\chanttranslator}", "\luatexluaescapestring{\chantincipit}")}
+    \captureoccasion{}
+    \captureauthor{}
+    \capturename{}
+    \capturdate{}
+    \capturetranslator{}
+}
 
 \setmainfont{EBGaramond}
 
@@ -56,9 +81,9 @@
 
 \mainmatter
 \part{Service Music}
-\chapter*{Mattins \& Evensong}
+\chapter{Mattins \& Evensong}
 
-\section*{The Invitatory Psalm}
+\section{The Invitatory Psalm}
 
 TODO:
 Invitatory Anthems w/ Psalm Tone
@@ -68,6 +93,7 @@ Invitatory Anthems w/ Psalm Tone
 
 \subsection{Tone IV}
 \emph{The blank notes must be omitted when the Psalm is sung without an Invitatory Anthem.}
+
 \gregorioscore{\MyPath/invitatories/veniteExultemusDomino4}
 
 \subsection{Tone VI}
@@ -76,27 +102,27 @@ Invitatory Anthems w/ Psalm Tone
 \subsection{Tone VII}
 \gregorioscore{\MyPath/invitatories/veniteExultemusDomino7}
 
-\section*{Pascha Nostrum}
+\section{Pascha Nostrum}
 TODO
 
 
-\section*{The Hymn of SS.\ Ambrose \& Austin}
+\section{The Hymn of SS.\ Ambrose \& Austin}
 \gregorioscore{\MyPath/canticles/te-deum}
 
 simple tone omitted?
 
-\section*{Benectus es}
+\section{Benectus es}
 TODO
 
-\section*{Benecite?}
+\section{Benecite?}
 TODO
 
-\section*{The Song of Zachary}
+\section{The Song of Zachary}
 \gregorioscore{\MyPath/canticles/benedictus-peregrin}
 
 TODO Psalm Tone
 
-\section*{The Song of the Blessed Virgin Mary}
+\section{The Song of the Blessed Virgin Mary}
 \gregorioscore{\MyPath/canticles/magnificat-peregrin}
 
 TODO Psalm Tone
@@ -105,68 +131,67 @@ TODO Nunc Dimittis
 
 
 \part{Hymns}
-\chapter*{Proper of the Season}
-\section*{Advent}
+\chapter{Proper of the Season}
+\section{Advent}
 TODO
 
-\section*{Christmas}
+\section{Christmas}
 TODO
 
-\section*{S.\ Stephen, Protomartyr}
+\section{S.\ Stephen, Protomartyr}
 TODO
 
-\section*{S.\ John, Ap.\ Ev.}
+\section{S.\ John, Ap.\ Ev.}
 TODO
 
-\section*{The Holy Innocents}
+\section{The Holy Innocents}
 TODO
 
-\section*{S.\ Thomas of Canterbury, M.}
+\section{S.\ Thomas of Canterbury, M.}
 TODO
 
-\section*{S.\ Sylvester, B.C.}
+\section{S.\ Sylvester, B.C.}
 TODO
 
-\section*{The Circumcision of our Lord}
+\section{The Circumcision of our Lord}
 TODO
 
-\section*{Epiphany}
+\section{Epiphany}
 TODO
 
-\section*{From the Octave of the Epiphany till the First Sunday in Lent}
-\subsection*{Saturday}
-\subsection*{Sunday}
-\subsection*{Monday}
-\subsection*{Tuesday}
-\subsection*{Wednesday}
-\subsection*{Thursday}
-\subsection*{Friday}
-\subsection*{Saturday}
+\section{From the Octave of the Epiphany till the First Sunday in Lent}
+\subsection{Saturday}
+\subsection{Sunday}
+\subsection{Monday}
+\subsection{Tuesday}
+\subsection{Wednesday}
+\subsection{Thursday}
+\subsection{Friday}
+\subsection{Saturday}
 
-\section*{The First Sunday in Lent and daily until the Third Sunday}
+\section{The First Sunday in Lent and daily until the Third Sunday}
 
 TODO
 
-\section*{The Third Sunday in Lent and daily until Passion Sunday}
+\section{The Third Sunday in Lent and daily until Passion Sunday}
 TODO
 
-\section*{Passion Sunday and daily until Wednesday in Holy Week inclusive}
+\section{Passion Sunday and daily until Wednesday in Holy Week inclusive}
 TODO
 
 ...
 
-\section*{Low Sunday}
+\section{Low Sunday}
 TODO
 
-\section*{Ascension Day and daily until Whitsun Day}
+\section{Ascension Day and daily until Whitsun Day}
 TODO
 
-\section*{Whitsun Day}
+\section{Whitsun Day}
 TODO
 
 \section{Trinity Sunday}
 and daily until Corpus Christi
-At Evensong \& Mattins.
 \hymn{adestoSanctaTrinitas}{
 2 Thee all the armies of the sky
 Adore, and laud, and magnify:
@@ -200,17 +225,17 @@ At Lauds
 2 Trinity holy! Unity unchanging!
 Godhead essential! Goodness all unbounded!
 Light of the Angels! Refuge of the friendless!
-Hope universal!
+    Hope universal!
 
 3 Duly its service giveth every creature;
 All thy creation, Lord, in thee rejoiceth:
 We too will hymn thee with our heart’s devotion;
-Graciously hear us.
+    Graciously hear us.
 
 4 Mightiest Godhead, unto thee be glory,
 Trinal yet Onely, Infinite and Highest:
 Glory and honour, song and praise beseem thee
-Now and for ever. Amen.
+    Now and for ever. Amen.
 }
 \V Blessed be the name of the Lord.  \R From this time forth for evermore.
 
@@ -219,7 +244,6 @@ Now and for ever. Amen.
 \section{Corpus Christi}
 and daily during the Octave
 
-¶ At both Evensongs.
 \hymn{sacrisSolemniis}{
 2 Remember we that night,
 When, the last Supper spread,
@@ -271,7 +295,6 @@ The Light wherein thou dwellest aye. Amen.
 }
 \V Thou didst give them bread from heaven.  \R Containing in itself all sweetness.
 
-¶ At Mattins.
 \hymn{pangeLinguaGloriosi}{
 2 Given for us, for us descending
 Of a Virgin to proceed,
@@ -310,7 +333,6 @@ Equal laud to thee be done. Amen.
 }
 \V Thou didst give them bread from heaven.  \R Containing in itself all sweetness.
 
-¶ At Lauds.
 \hymn{verbumSupernumProdiens}{
 2 By false disciple to be given
 To foemen for his Blood athirst,
@@ -341,8 +363,7 @@ In our true native land, with thee. Amen.
 
 
 \gregorioscore{\MyPath/processions/salveFestaCorpusChristi}
-
-
+\hymnverses{
 3 Here is the Body of Christ, that saveth from death everlasting,—
 Food by the manna foretold, writ in the records of yore.
 
@@ -372,7 +393,7 @@ And, when the third day dawn’d, rose in the flesh from the grave.
 
 12 Grant us eternal rest, primeval Fountain of blessings;
 Ours be the land where day dureth, and night is unknown.
-
+}
 
 
 \gregorioscore{\MyPath/processions/laudaSyonSalvatorem}
@@ -401,7 +422,6 @@ To God the holy Paraclete. Amen.
 \subsection{Sunday}
 And through the week.
 
-Mattins
 \hymn{nocteSurgentes}{
 2 So may our Monarch pitifully hear us,
 That we may merit with his Saints to enter
@@ -416,7 +436,7 @@ Ever resoundeth. Amen.
 \V The Lord is high above all péople.  \R And his glory above the héavens.
 TODO - weekday verse!
 
-Lauds
+
 \hymn{ecceJamNoctis}{
 2 So shall our Maker, of his great compassion,
 Banish all sickness, kindly health bestowing;
@@ -435,13 +455,12 @@ TODO - weekday verse!
 Hymn 13 (E)
 TODO
 
-\section*{Dedication of a Church}
+\section{Dedication of a Church}
 TODO
 
 
-\chapter*{Common of Saints}
-\section*{Of one or more Apostles or an Evangelist out of Eastertide}
-¶ At First Evensong.\hfill Annue Christe
+\chapter{Common of Saints}
+\section{Of one or more Apostles or an Evangelist out of Eastertide}
 \hymn{annueChriste}{
 ¶ Here let the special verse proper to the Feast be sung.
 3 Save, O Redeemer, this thy noble handiwork,
@@ -463,7 +482,7 @@ With whom thou reignest God from all eternity.  Amen.
 \V Their sound is gone out into all lands.  \R And their words into the ends of the world.
 
 
-[h4] Special Verses
+\subsubsection{Special Verses}
 
 \hymnverses{
 \minorheading{S.\ Andrew.}{Andrea pie}
@@ -549,7 +568,6 @@ Thy servants also may have place.  Amen.
 \V Thou hast given an heritage.  \R Unto those that fear thy Name, O Lord.
 
 
-¶ At Lauds \& Second Evensong.\hfill Exultet celum laudibus
 \hymn{exultetCelumLaudibus}{
 2 O ye who, throned in glory dread,
 Shall judge the living and the dead—
@@ -580,16 +598,16 @@ To God the holy Paraclete. Amen.
 
 \V They declared the works of God.  \R And wisely considered of his doings.
 
-\section*{One or More Apostles or an Evangelist in Paschal-Tide}
+\section{One or More Apostles or an Evangelist in Paschal-Tide}
 TODO
 
-\section*{Of one Martyr}
+\section{Of one Martyr}
 TODO
 
-\section*{Of Many Martyrs}
+\section{Of Many Martyrs}
 TODO
 
-\section*{Of a Confessor}
+\section{Of a Confessor}
 TODO
 
 
@@ -628,7 +646,6 @@ Reigneth for ever. Amen.
 {Mattins.} \V God shall give her the help of his cóuntenance.  \R God is in the midst of her, therefore shall she not be remóved. (Allelúya).
 
 
-L2E Jesu corona Virginum
 ¶ For Many Virgins, the hymn and \V is {Rex gloriose martyrum}, as at Lauds for Many Martyrs.
 ¶ This tune is for 2nd Evensong; At Mattins it is sung to {Veni, redemptor Gentium}.  During Christmas tide, at both hours, to Christe Redemptor Omnium, and during eastertide to Aurora Lucit - apostles
 
@@ -688,7 +705,7 @@ With the Virgin’s stainless Son
 Ye for aye are seated.
 
 
-\chapter*{Proper of Saints}
+\chapter{Proper of Saints}
 November 30
 S.\ Andrew, Ap. M.
 
@@ -792,9 +809,7 @@ S. Peter's Chains
 As for the Common of apostles
 
 August 6
-\section*{Transfiguration of our Lord}
-Office Hymn. E.
-15th cent. Tr.
+\section{Transfiguration of our Lord}
 \hymn{celestisFormamGlorie}{
 2 Tale for all ages to declare;
 For with the three disciples there,
@@ -886,7 +901,7 @@ Dost reign to endless ages One. Amen.
 
 
 August 7
-\section*{The most sweet Name of Jesus}
+\section{The most sweet Name of Jesus}
 1E  Exultet cor precordiis 237
 M Jesu, dulcis memoria 238, 419
 L Jesu, Auctor clemencie 
@@ -918,12 +933,12 @@ November 1
 All Saints
 
 
-\chapter*{Hymns for the Lesser Hours}
-\section*{At Prime}
-\section*{At Tierce}
-\section*{At Sext}
-\section*{At None}
-\section*{At Compline}
+\chapter{Hymns for the Lesser Hours}
+\section{At Prime}
+\section{At Tierce}
+\section{At Sext}
+\section{At None}
+\section{At Compline}
 
 
 

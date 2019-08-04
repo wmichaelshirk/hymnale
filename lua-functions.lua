@@ -31,13 +31,46 @@ function printhymn(text)
     tex.print("\\footnotesize")
     tex.print("\\begin{multicols}{2}")
     local newPar = "\\par\r "
-    local splitVerses = tsplit(text:gsub(string.char(10), newPar), newPar:rep(2))
-    local lastVerse
+    local indentedText = text:gsub("    ", "\\hspace{\\parindent}")
+    local splitVerses = tsplit(indentedText:gsub(string.char(10), newPar), newPar:rep(2))
+    local lastVerse = ''
     if isOdd(#splitVerses) then
-        lastVerse = table.remove(splitVerses)
+        lastVerse = table.remove(splitVerses):gsub(newPar, "\\\\ ")
     end
     tex.print(table.concat(splitVerses, "\\medskip\r "))
     tex.print("\\end{multicols} ")
-    tex.print(lastVerse)
+    if (lastVerse ~= '') then
+        tex.print("\\begin{center}\\begin{tabular}{l}")
+        tex.print(lastVerse)
+        tex.print("\\end{tabular}\\end{center}")
+    end
     tex.print("\\end{hangparas} ")
+end
+
+
+function printheaders(occasion, author, date, translator, incipit)
+    tex.print("{\\small")
+    if (notEmpty(occasion) or notEmpty(author) or notEmpty(date) or notEmpty(translator)) then
+        tex.print("\\begin{multicols}{2}")
+        tex.print("\\noindent " .. occasion .. "\\par\n")
+        tex.print("\\begin{flushright}")
+        if (author ~= nil and author ~= '') then 
+            tex.print(author .. ", ")
+        end
+        if (date ~= nil and date ~= '') then 
+            tex.print(date .. " ")
+        end
+        if (translator ~= nil and translator ~= '') then 
+            tex.print("Tr.\\ " .. translator .. "\n")
+        end
+        tex.print("\\end{flushright}\\end{multicols} ")
+    end
+    if (notEmpty(incipit)) then
+        tex.print("\\centerline{\\emph{" .. incipit .. "}}")
+    end
+    tex.print("}")
+end
+
+function notEmpty(str)
+    return (str ~= nil and str ~= '')
 end
