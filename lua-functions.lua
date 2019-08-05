@@ -31,7 +31,7 @@ function printhymn(text)
     tex.print("\\footnotesize")
     tex.print("\\begin{multicols}{2}")
     local newPar = "\\par\r "
-    local indentedText = text:gsub("    ", "\\hspace{\\parindent}")
+    local indentedText = text:gsub("    ", "\\hspace{1cm}")
     local splitVerses = tsplit(indentedText:gsub(string.char(10), newPar), newPar:rep(2))
     local lastVerse = ''
     if isOdd(#splitVerses) then
