@@ -13,7 +13,7 @@
 %\definecolor{gregoriocolor}{RGB}{99,00,00}
 \gresetlinecolor{gregoriocolor}
 \gresetgregoriofont[op]{greciliae}
-\grechangestyle{firstsyllableinitial}{\scshape}
+\grechangestyle{firstsyllableinitial}{\MakeUppercase}
 \gresetlyriccentering{syllable}
 \gresetannotationby{bottomline}
 \gresetannotationvalign{top}
@@ -38,7 +38,8 @@
 \gresetheadercapture{translator}{capturetranslator}{string}
 \gresetheadercapture{name}{capturename}{string}
 \greafterheaders{
-    \directlua{printheaders("\luatexluaescapestring{\chantoccasion}", "\luatexluaescapestring{\chantauthor}", "\luatexluaescapestring{\chantdate}", "\luatexluaescapestring{\chanttranslator}", "\luatexluaescapestring{\chantincipit}")}
+    \stepcounter{ChantNumber}%{\Large\textbf{\arabic{ChantNumber}}}
+    \directlua{printheaders("\arabic{ChantNumber}", "\luatexluaescapestring{\chantoccasion}", "\luatexluaescapestring{\chantauthor}", "\luatexluaescapestring{\chantdate}", "\luatexluaescapestring{\chanttranslator}", "\luatexluaescapestring{\chantincipit}")}
     \captureoccasion{}
     \captureauthor{}
     \capturename{}
@@ -62,11 +63,19 @@
 % Path to chant directory, in case they should be moved out.
 \newcommand*{\MyPath}{chants}
 
+
+% Chant Number counter
+\newcounter{ChantNumber}
+
+
 % Command to style hymns
 % *Number*
 % [[Office Hymn.]] Mattins           {C. 10th cent.  Tr. P. D}
 %                Annue Christe, saeculorum Domine
-\def\hymn#1{\gregorioscore{\MyPath/hymns/#1}\obeylines\hymna}
+\newcommand{\chant}[1]{
+    \gregorioscore{\MyPath#1}
+}
+\def\hymn#1{\chant{/hymns/#1}\obeylines\hymna}
 \def\hymnverses{\obeylines\hymna}
 \newcommand{\hymna}[1]{
     \directlua{printhymn([[#1]])}
@@ -219,6 +228,7 @@ TODO
 
 \section{Trinity Sunday}
 and daily until Corpus Christi
+
 \hymn{adestoSanctaTrinitas}{
 2 Thee all the armies of the sky
 Adore, and laud, and magnify:
@@ -241,13 +251,11 @@ And thee, O Holy Ghost, we raise
 Our equal and eternal praise.  Amen.
 }
 
-At Evensong.
-\V Let us bless the Father, the Son, and the Holy Ghost.  \R Let us praise him, and magnify him for ever.
+\emph{Evensong.} \V Let us bless the Father, the Son, and the Holy Ghost.  \R Let us praise him, and magnify him for ever.
 
-At Mattins.
-\V Blessed art thou, O Lord, in the firmament of heaven.  \R And worthy to be praised and glorified for ever.
+\emph{Mattins.} \V Blessed art thou, O Lord, in the firmament of heaven.  \R And worthy to be praised and glorified for ever.
 
-At Lauds
+
 \hymn{oPaterSancte}{
 2 Trinity holy! Unity unchanging!
 Godhead essential! Goodness all unbounded!
@@ -1200,7 +1208,7 @@ In the bright firmament, ordering all things. Amen.
 M 72 Quem terra
 L 73 O gloriosa and verse(mary)
 
-2 E 76 (Letabundus) (candlemas?)
+2 E 76 (Letabundus) (christmas sequence?)
 \V Thou art exalted, O holy Mother of God.  
 \R Above the quires of angels, unto the heavenly kingdom.
 ...

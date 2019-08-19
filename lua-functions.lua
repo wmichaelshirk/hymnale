@@ -48,29 +48,37 @@ function printhymn(text)
 end
 
 
-function printheaders(occasion, author, date, translator, incipit)
-    tex.print("{\\small")
-    if (notEmpty(occasion) or notEmpty(author) or notEmpty(date) or notEmpty(translator)) then
-        tex.print("\\begin{multicols}{2}")
-        tex.print("\\noindent " .. occasion .. "\\par\n")
-        tex.print("\\begin{flushright}")
-        if (author ~= nil and author ~= '') then 
-            tex.print(author .. ", ")
+function printheaders(number, occasion, author, date, translator, incipit)
+    wrapPrint("\\noindent{\\LARGE\\textbf{" .. number .. "\\ }")
+    wrapPrint("\\small\\begin{minipage}[t]{.40\\linewidth}\\begin{flushleft}")
+    if (notEmpty(occasion)) then
+        wrapPrint("{\\scshape " .. occasion .. "}")
+    end
+    wrapPrint("\\end{flushleft}\\end{minipage}")
+
+    if (notEmpty(author) or notEmpty(date) or notEmpty(translator)) then
+        wrapPrint("\\hfill\\begin{minipage}[t]{.40\\linewidth}\\begin{flushright}")
+        if (notEmpty(author)) then
+            wrapPrint(author .. ", ")
         end
-        if (date ~= nil and date ~= '') then 
-            tex.print(date .. " ")
+        if (notEmpty(date)) then
+            wrapPrint("\\textit{" ..date .. "}, \\par")
         end
-        if (translator ~= nil and translator ~= '') then 
-            tex.print("Tr.\\ " .. translator .. "\n")
+        if (notEmpty(translator)) then
+            wrapPrint("\\textit{Tr.} " .. translator .. "\\par\n")
         end
-        tex.print("\\end{flushright}\\end{multicols} ")
+        wrapPrint("\\end{flushright}\\end{minipage}")
     end
     if (notEmpty(incipit)) then
-        tex.print("\\centerline{\\emph{" .. incipit .. "}}")
+        wrapPrint("\\par\\centerline{\\emph{" .. incipit .. "}}")
     end
     tex.print("}")
 end
 
 function notEmpty(str)
     return (str ~= nil and str ~= '')
+end
+
+function wrapPrint(arg)
+    tex.sprint(arg)
 end
