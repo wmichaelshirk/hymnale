@@ -8,6 +8,17 @@
 \setsubsecheadstyle{\centering}
 \setsecheadstyle{\large\scshape\centering}
 
+
+\nouppercaseheads
+\makepagestyle{mystyle}
+\makeevenhead{mystyle}{}{\scshape\leftmark}{}
+\makeoddhead{mystyle}{}{\scshape\rightmark}{}
+\makeevenfoot{mystyle}{}{\thepage}{}
+\makeoddfoot{mystyle}{}{\thepage}{}
+\makepsmarks{mystyle}{%
+  \createmark{chapter}{left}{nonumber}{}{}}
+
+\pagestyle{mystyle}
 \directlua{dofile("lua-functions.lua")}
 
 %
@@ -62,6 +73,7 @@
 \newcommand \V{{\red℣.\ }}
 \newcommand \etc{\emph{\red\&c.}}
 \newcommand \minorheading[2]{{\unexpanded\expandafter{\scshape #1}} {\unexpanded\expandafter{\itshape #2}}}
+\newcommand \rubric[1]{\emph{\red#1}}
 
 % Path to chant directory, in case they should be moved out.
 \newcommand*{\MyPath}{chants}
@@ -100,6 +112,13 @@
 \part{Service Music}
 \chapter{Mattins \& Evensong}
 
+"Preces"
+O lord, open our lips
+
+O God, make speed to save me
+
+Alleluia?
+
 \section{The Invitatory Psalm}
 
 TODO:
@@ -119,8 +138,51 @@ Invitatory Anthems w/ Psalm Tone
 \subsection{Tone VII}
 \gregorioscore{\MyPath/invitatories/veniteExultemusDomino7}
 
+
+Venite, exultemus Domino. Psalm xcv.
+O come, let us sing unto the Lord : let us heartily rejoice in the strength of our salvation.
+
+2 Let us come before his presence with thanksgiving : and shew ourselves glad in him with Psalms.
+
+3 For the Lord is a great God : and a great King above all gods.
+
+4 In his hand are all the corners of the earth : and the strength of the hills is his also.
+
+5 The sea is his, and he made it : and his hands prepared the dry land.
+
+6 O come, let us worship and fall down : and kneel before the Lord our Maker.
+
+7 For he is the Lord our God : and we are the people of his pasture, and the sheep of his hand.
+
+8 To day if ye will hear his voice, harden not your hearts : as in the provocation, and as in the day of temptation in the wilderness;
+
+9 When your fathers tempted me : proved me, and saw my works.
+
+10 Forty years long was I grieved with this generation, and said : It is a people that do err in their hearts, for they have not known my ways.
+
+11 Unto whom I sware in my wrath : that they should not enter into my rest.
+
+Glory be to the Father, and to the Son : and to the Holy Ghost;
+
+As it was in the beginning, is now, and ever shall be : world without end. Amen.
+
+
 \section{Pascha Nostrum}
-TODO
+
+
+\gregorioscore{\MyPath/processions/paschaNostrum1}
+\gregorioscore{\MyPath/processions/paschaNostrum2}
+\gregorioscore{\MyPath/processions/paschaNostrum3}
+\gregorioscore{\MyPath/processions/paschaNostrum4}
+
+Easter Procession:
+¶ In the morning, before Mattins, the people being assembled in the Church, these Anthems shall be first solemnly sung or said. 
+
+\V Declare his honour unto the héathen. \R And his wonders unto all people, Allelúya.
+
+Let us pray.
+
+O God, who for our redemption didst give thine only-begotten Son to the death of the Cross, and by his glorious resurrection hast delivered us from the power of the enemy; Grant us so to die daily from sin, that we may evermore live with him in the joy of his resurrection; through the same Christ our Lord. \R Amen.
 
 
 \section{The Hymn of SS.\ Ambrose \& Austin}
@@ -157,18 +219,105 @@ TODO Psalm Tone
 
 TODO Nunc Dimittis
 
+"Responses"
+Lord have mercy
+
+O Lord shew thy mercy....
+
+The Lord be with you... through Jesus Christ our Lord.
+
+The Lord be with you... let us bless.
+
 \chapter{The Creed of Saint Anthanasius}
 TODO
+
 \chapter{The Litany}
 TODO
+
 \chapter{The Holy Communion}
 TODO
 
 \part{Hymns}
 \chapter{Proper of the Season}
+\newpage
 \section{Advent}
-TODO
+\hymn{conditorAlmeSiderum}{
+2 Thou, grieving that the ancient curse 
+Should doom to death an universe,
+Hast found the med’cine, full of grace, 
+To save and heal a ruined race.
+
+3 Thou cam’st, the Bridegroom of the bride,
+As drew the world to even-tide:
+Proceeding from a Virgin shrine,
+The spotless Victim all divine.
+
+4 At whose dread Name majestick now,
+All knees must bend, all hearts must bow,
+And things celestial thee shall own,
+And things terrestrial, Lord alone.
+
+5 O thou, whose coming is with dread
+To judge and doom the quick and dead,
+Preserve us, while we dwell below,
+From ev’ry insult of the foe.
+
+6 All praise, eternal Son, to thee
+Whose Advent doth thy people free;
+Whom with the Father we adore,
+And Holy Ghost, for evermore.  Amen.
+}
+
+\V Drop down, ye heavens, from above.  \R  And let the skies pour down righteousness; let the earth open, and let them bring forth salvation.
+
+\gregorioscore{\MyPath/processions/rorateCaeli}
+
+℣. Out of Sion hath God appeared in perfect beauty.  ℟. Our God shall come, and shall not keep silence.
+
+Let us pray.
+
+Stir up, we beseech thee, O Lord, the wills of thy faithful people; that they, plenteously bringing forth the fruit of good works, may of thee be plenteously rewarded; through Jesus Christ our Lord. ℟. Amen.
+
+% \gregorioscore{\MyPath/processions/salusEterna}
+%\endnote{The English Hymnal, 10. Tune uncorrected- online copy missing a couple pages. Wording slightly different in Hymn Melodies for the Whole Year, 1}
+
 Sequence: Salus eterna
+
+\section{The First Sunday in Advent}
+
+Office. Ad te levavi.
+\lettrine{U}{nto} thee, O Lord, lift I up my soul; O my God, in thee have I trusted, let me not • be confóunded; * neither let mine enemies triumph over me; for all they that look for thee shall • not be ashamed. \rubric{Ps.} Shew me • thý ways, Ó Lord * and • teach me thý paths.
+
+\rubric{Grail.} For all they • that lóok for thee * shall not be a•shámed, Ó Lord.  \V Make known to me • thy wáys, O Lord * and • téach me thy paths.  \rubric{Alleluya.} \V Shew us thy mercy, • O Lord * and grant us • thy salvátion.   \rubric{Offertory.} Unto thee, O Lord, lift I up my soul; O my God, in thee have I trusted, let me • not be confóunded * neither let mine enemies triumph over me; for all they that look for thee shall • not be ashamed.  \rubric{Communion.} The Lord shall shew • lóving-kíndness * and our land • shall give her increase.
+
+\section{The Second Sunday of Advent}
+Office. Populus Sion.
+\lettrine{O}{ people} of Sion, behold, the Lord is nigh at hand to re•déem the nátions: * and in the gladness of your heart the Lord shall cause his glori•ous voice to be heard.  \rubric{Ps.} Hear, O thou • Shépherd of Ísrael: * thou that leadest • Jóseph like a sheep.
+
+\rubric{Grail.} Out of Sion hath God • appéared: * in • pérfect béauty.  \V Gather my saints toge•ther únto me: * those that have made a covenant with • mé with sácrifice.  \rubric{Alleluya.} \V For the powers of heaven shall be • shaken: * and then shall they see the Son of Man coming in a cloud with power • and great glóry. \rubric{Offertory.} Wilt not thou turn again, O God, and quicken us; that thy peo•ple may rejóice in thee: * shew us thy mercy, O Lord; and grant • us thy salvation.  \rubric{Communion.} Jerusalem, haste • thee, and stánd on high: * and behold the joy and gladness, which cometh unto thee • from God thy Saviour.
+
+
+\section{The Third Sunday of Advent}
+Office. Gaudete.
+\lettrine{R}{ejoice} ye in the Lord alway, and again I say, rejoice ye;   Let your moderation be known unto all men; the • Lord is át hand. * Be careful for nothing, nor troubled; but in all things, by prayer and supplication, with thanksgiving, let your requests be • made known unto God.  \rubric{Ps.} And the peace of God, which passeth all • únderstánding * shall • keep your héarts and minds.
+
+\rubric{Grail.} Shew thyself, O Lord, thou that sittest upon • the Chérubim: * stir • úp thy stréngth and come.  \V Hear, O thou Shepherd • of Ísrael: * thou that leadest • Jóseph líke a sheep.  \rubric{Alleluya.} \V Stir up thy strength, • O Lord: * and • come and hélp us. \rubric{Offertory.} Lord, thou art become gracious unto thy land; thou hast turned away the capti•vity of Jácob; * thou hast forgiven the of•fence of thy people.  \rubric{Communion.} Say to them that are • of a féarful heart: * Be strong, fear not; behold, your God • will come and save you.
+
+
+\section{The Fourth Sunday of Advent}
+¶ Should the Fourth Sunday fall on {Christmas Eve}, the {Office, Grail, Alleluya, Offertory,} and {Communion} will be those of {Christmas Eve}, below.
+Office. Memento nostri.
+
+\lettrine{R}{emember} us, O Lord, with the favour that thou bearest unto thy people; O visit us with • thy salvátion: * that we, beholding the felicity of thy chosen, may rejoice in the gladness of thy people, and may glory with • thine inheritance. \rubric{Ps.} We have sinned • wíth our fáthers: * we have done amiss, • and dealt wíckedly.
+
+\rubric{Grail.} The Lord is nigh unto all them that call • upón him; * yea, all such as call up•ón him fáithfully. \V My mouth shall speak the praise • of thé Lord; * and let all flesh give thanks un•tó his hóly name. \rubric{Alleluia.} \V Come, O Lord, and tar•ry not: * forgive the misdeeds • of thy péople. \rubric{Offertory.} Be strong, fear not; behold, our God will • come with a récompense: * – he • will come and save us. \rubric{Communion.} Behold, a Virgin shall con•ceive and béar a Son, * and his name shall be call•ed Emmanuel.
+
+
+\section{Christmas Eve}
+Office. Hodie scietis.
+\lettrine{T}{o-day} shall ye know that the Lord will come to deliver you * and at sunrise shall ye behold his glory. \rubric{Ps.} The earth is the Lord’s, and all that is therein * the compass of the world, and they that dwell therein.
+
+\rubric{Grail.} To-day shall ye know that the Lord will come to deliver you; * and at sunrise shall ye behold his glory. \V Hear, O thou Shepherd of Israel, thou that leadest Joseph like a sheep: * show thyself also, thou that sittest upon the Cherubim, before Ephraim, Benjamin, and Manasses. \rubric{Alleluya.} \V On the morrow the iniquity of the earth shall be blotted out: * and the Saviour of the world shall reign over us. \rubric{Offertory.} Lift up your heads, O ye gates, and be ye lift up, ye everlasting doors: * and the King of Glory shall come in. \rubric{Communion.} The glory of the Lord shall be revealed: * and all flesh shall see the salvation of our God.
 
 \section{Christmas}
 TODO
@@ -216,10 +365,140 @@ Sequence: Letabundus (The Hymner)
 \subsection{Friday}
 \subsection{Saturday}
 
+\newpage
+\section[The First and Second Weeks in Lent]{The First Sunday in Lent}
+\centerline{and daily until the Third Sunday}
 
-\section[The First and Second Weeks in Lent]{The First Sunday in Lent and daily until the Third Sunday}
 
-TODO
+\hymn{exMoreDoctiMystico}{
+2 The law and seers that were of old
+In divers ways this Lent foretold,
+Which Christ, all seasons’ king and guide,
+In after ages sanctified.
+
+3. More sparing therefore let us make
+The words we speak, the food we take,
+Our sleep and mirth,—and closer barred
+Be ev’ry sense in holy guard.
+
+4 In pray’r together let us fall,
+And cry for mercy, one and all,
+And weep before the Judge’s feet,
+And his avenging wrath entreat.
+
+5 Thy grace have we offended sore
+By sins, O God, which we deplore:
+But pour upon us from on high,
+O pardoning One, thy clemency.
+
+6 Remember thou, though frail we be,
+That yet thine handiwork are we:
+Nor let the honour of thy Name
+Be by another put to shame.
+
+7 Forgive the sin that we have wrought;
+Increase the good that we have sought:
+That we at length, our wanderings o’er,
+May please thee here and evermore.
+
+8 Grant, O thou Blessed Trinity,
+Grant, O Essential Unity,
+That this our fast of forty days
+May work our profit and thy praise.  Amen.
+}
+
+\V God shall give his angels charge over thee.  \R To keep thee in all thy ways.
+
+\bigskip
+
+\hymn{christeQuiLuxEs}{
+2 All-holy Lord, to thee we bend;
+Thy servants through this night defend:
+O grant us calm repose in thee,
+A quiet night from perils free.
+
+3 Let not dull sleep the soul oppress,
+Nor crafty foe the heart possess,
+Nor Satan’s wiles the flesh allure,
+To make us in thy sight impure.
+
+4 Let but the eyes due slumber take,
+The heart to thee be aye awake;
+And thy right hand protection be
+To them who love and trust in thee.
+
+5 Look down, O Lord, our strong defence,
+Repress our foes’ proud insolence:
+Preserve and govern us for good—
+The purchase of thy precious blood.
+
+6 Remember us, dear Lord, we pray,
+Pent in this cumbering frame of clay:
+Thou only canst the soul defend;
+Be with us, Saviour, to the end.
+
+7 All laud to God the Father be;
+All praise, eternal Son, to thee;
+All glory, as is ever meet,
+To God the holy Paraclete. Amen.
+}
+
+\V Keep us, O Lórd.  \R As the apple of an eye, hide us under the shadow of thy wíngs.
+
+\bigskip
+
+\hymn{summiLargitorPremii}{
+2 Our guilty conscience tells that we
+Have grievously offended thee:
+We pray thee, cleanse it by thy grace,
+And every stain of sin efface.
+
+3 If thou wilt not, who shall condone?
+Send pardon, for ’tis thine alone:
+And grant, O Lord, our pray’rs may be
+By clean hearts offer’d unto thee.
+
+4 Thus may our fast thy favour gain,
+Who didst this Lenten-tide ordain:
+That meetly we the mystick fare
+Of Paschal Sacraments may share.
+
+5 This grant us, Blessed Trinity,
+Supreme and wondrous Deity:
+Who, through all ages glorified,
+Dost still one God unchanged abide. Amen.
+}
+
+\V He shall deliver me.  \R From the snare of the hunter, and from the noisome pestilence.
+
+\bigskip
+
+
+\bigskip
+
+\hymn{audiBenigneConditor}{
+2 Each heart is manifest to thee;
+Thou knowest our infirmity:
+Forgive thou then each soul that fain
+Would seek to thee, and turn again.
+
+3 Our sins are manifold and sore,
+But pardon them that sin deplore:
+And, for thy Name’s sake, make each soul
+That feels and owns its languor whole.
+
+4 So mortify we every sense
+By grace of outward abstinence,
+That from each stain and spot of sin,
+The soul may keep her fast within.
+
+5 Grant, O thou blessed Trinity,
+Grant, O essential Unity,
+That this our fast of forty days
+May work our profit and thy praise. Amen.
+}
+
+\V His truth shall be thy shield and buckler.  \R Thou shalt not be afraid for any terror by night.
 
 
 \section[The Third and Fourth Weeks in Lent]{The Third Sunday in Lent and daily until Passion Sunday}
